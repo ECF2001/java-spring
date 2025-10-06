@@ -45,7 +45,7 @@ public class ItemRestController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN')")
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN_ROLE')")
     public Item updateItem(@PathVariable Long id, @RequestBody Item item) {
         return itemRepository.findById(id)
                 .map(existingItem -> {
